@@ -12,6 +12,7 @@ dependencies = [
     "llama-index-embeddings-gemini",
     "python-dotenv",
     "lancedb<0.30.0", # Fix: Version 0.30.1 is missing Windows wheels
+    "crewai-tools>=1.11.1",
 ]
 
 [tool.uv]
