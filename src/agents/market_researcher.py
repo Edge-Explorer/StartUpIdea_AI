@@ -2,13 +2,15 @@ from crewai import Agent, LLM
 import os
 from dotenv import load_dotenv
 from crewai_tools import TavilySearchTool
+from tools.rag_tool import StartupDataRAGTool # Import the new tool!
 
 load_dotenv()
 
 class MarketResearcherAgent:
     def __init__(self):
-        # 1. Initialize the Search Tool
-        self.search_tool= TavilySearchTool(api_key=os.getenv("TAVILY_API_KEY"))
+        # 1. Initialize the Search Tools
+        self.search_tool = TavilySearchTool(api_key=os.getenv("TAVILY_API_KEY"))
+        self.rag_tool = StartupDataRAGTool() # Initialize our knowledge base
 
         # 2. Use CrewAI's native LLM wrapper for Gemini 2.0
         self.llm = LLM(
