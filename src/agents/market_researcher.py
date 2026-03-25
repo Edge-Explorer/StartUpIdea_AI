@@ -28,7 +28,7 @@ class MarketResearcherAgent:
             backstory= """ You are an expert market analyst with a background in venture capital. 
             You have a "nose" for identifying which ideas are just hype and which have real 
             long-term potential. You focus on data, search trends, and demographic shifts. """,
-            tools= [self.search_tool],
+            tools= [self.search_tool, self.rag_tool],
             llm= self.llm,
             verbose= True,
             allow_delegation= False
