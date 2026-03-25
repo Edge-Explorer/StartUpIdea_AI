@@ -1,4 +1,6 @@
 import os
+import warnings
+warnings.simplefilter("ignore", FutureWarning)
 from crewai.tools import BaseTool
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
 from llama_index.llms.gemini import Gemini

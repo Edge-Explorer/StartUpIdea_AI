@@ -1,4 +1,6 @@
 import os
+import warnings
+warnings.simplefilter("ignore", FutureWarning) # Suppress noisy deprecation warnings
 from dotenv import load_dotenv
 from crewai import Crew, Process
 
