@@ -1,15 +1,15 @@
+from crewai_tools import TavilySearchTool
 import os
+from dotenv import load_dotenv
 from crewai import Agent
 from langchain_google_genai import ChatGoogleGenerativeAI
-from dotenv import load_dotenv
-from crewai_tools import DuckDuckGoSearchRun
 
 load_dotenv()
 
 class MarketResearcherAgent:
     def __init__(self):
         # 1. Initialize the Search Tool
-        self.search_tool= DuckDuckGoSearchRun()
+        self.search_tool= TavilySearchTool()
 
         # 2. Initialize Gemini
         self.llm= ChatGoogleGenerativeAI(

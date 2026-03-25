@@ -2,14 +2,14 @@ import os
 from crewai import Agent
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
-from crewai_tools import DuckDuckGoSearchRun
+from crewai_tools import TavilySearchTool
 
 load_dotenv()
 
 class CompetitorAnalystAgent:
     def __init__(self):
         # 1. Initialize the Search Tool
-        self.search_tool= DuckDuckGoSearchRun()
+        self.search_tool= TavilySearchTool()
 
         # 2. Initialize Gemini
         self.llm= ChatGoogleGenerativeAI(
