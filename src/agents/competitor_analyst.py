@@ -9,7 +9,7 @@ load_dotenv()
 class CompetitorAnalystAgent:
     def __init__(self):
         # 1. Initialize the Search Tool
-        self.search_tool= TavilySearchTool()
+        self.search_tool= TavilySearchTool(api_key=os.getenv("TAVILY_API_KEY"))
 
         # 2. Initialize Gemini
         self.llm= ChatGoogleGenerativeAI(
