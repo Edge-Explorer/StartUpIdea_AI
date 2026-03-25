@@ -11,7 +11,7 @@ class RiskAnalystAgent:
         self.llm= ChatGoogleGenerativeAI(
             model= "gemini-2.0-flash",
             verbose= True,
-            temperature= 0.3,
+            temperature= 0.4,
             google_api_key= os.getenv("GEMINI_API_KEY")
         )
 
