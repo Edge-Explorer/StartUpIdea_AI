@@ -1,18 +1,16 @@
 import os
 from dotenv import load_dotenv
-from crewai import Agent
-from langchain_google_genai import ChatGoogleGenerativeAI
+from crewai import Agent, LLM
 
 load_dotenv()
 
 class BusinessStrategistAgent:
     def __init__(self):
-        # 1. Initialize Gemini
-        self.llm= ChatGoogleGenerativeAI(
-            model= "gemini-2.0-flash",
-            verbose= True,
-            temperature= 0.7, # Higher creativity for strategy
-            google_api_key= os.getenv("GEMINI_API_KEY")
+        # Use CrewAI's native LLM wrapper for Gemini 2.0
+        self.llm = LLM(
+            model="gemini/gemini-2.0-flash",
+            temperature=0.7, # Higher creativity for strategy
+            api_key=os.getenv("GEMINI_API_KEY")
         )
 
     # 2. Define the Agent

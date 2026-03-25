@@ -1,7 +1,6 @@
 import os
-from crewai import Agent
 from dotenv import load_dotenv
-from langchain_google_genai import ChatGoogleGenerativeAI
+from crewai import Agent, LLM
 from crewai_tools import TavilySearchTool
 
 load_dotenv()
@@ -11,12 +10,11 @@ class CompetitorAnalystAgent:
         # 1. Initialize the Search Tool
         self.search_tool= TavilySearchTool(api_key=os.getenv("TAVILY_API_KEY"))
 
-        # 2. Initialize Gemini
-        self.llm= ChatGoogleGenerativeAI(
-            model= "gemini-2.0-flash",
-            verbose= True,
-            temperature= 0.5,
-            google_api_key= os.getenv("GEMINI_API_KEY")
+        # 2. Use CrewAI's native LLM wrapper for Gemini 2.0
+        self.llm = LLM(
+            model="gemini/gemini-2.0-flash",
+            temperature=0.3, # lower for facts
+            api_key=os.getenv("GEMINI_API_KEY")
         )
 
     # 3. Define the Agent
