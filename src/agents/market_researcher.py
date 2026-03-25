@@ -19,7 +19,7 @@ class MarketResearcherAgent:
             google_api_key= os.getenv("GEMINI_API_KEY")
         )
 
-        # 3. Define the Agent
+    # 3. Define the Agent
     def get_agent(self) -> Agent:
 
         return Agent(
